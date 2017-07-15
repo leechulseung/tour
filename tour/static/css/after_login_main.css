@@ -76,7 +76,7 @@ button:focus {
 /*main*/
 .main {
 	height: 100vh;
-    background-image: url(../img/map.jpg);
+    background-image: url({% static 'map.jpg' %});
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

@@ -8,3 +8,6 @@ def index(request):
     else:
         pass
     return render(request, 'accounts/index.html')
+
+def joinus(request):
+    return render(request, 'accounts/joinus.html')
