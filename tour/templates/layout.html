@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-reboot.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-reboot.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/after_login_main.css' %}">
+   <link rel="stylesheet" type="text/css" href="{% static 'css/after_login_main.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/before_login_main.css' %}">
 
   {% block style %} 
@@ -26,11 +26,11 @@
   <!-- 로그인을 하지 않았을 경우 -->
   {% if not user.is_authenticated  %}
     <header class="header fixed-top">
-          <nav class="navbar navbar-toggleable-md navbar-light bg-sambemi">
-              <ul class="navbar-nav mr-auto">
-              </ul>
-              <div class="dropdown">
-                  <button class="header__button navbar-white btn py-lg-0 py-md-1 py-sm-0 mr-3 mb-1" type="button" id="dropdownMenuButton" data-toggle="modal" data-target="#myModal">
+      <nav class="navbar navbar-toggleable-md navbar-light bg-sambemi">
+        <ul class="navbar-nav mr-auto">
+          </ul>
+            <div class="dropdown">
+              <button class="header__button navbar-white btn py-lg-0 py-md-1 py-sm-0 mr-3 mb-1" type="button" id="dropdownMenuButton" data-toggle="modal" data-target="#myModal">
                       LOG IN
                   </button>
                   <button class="header__button navbar-white py-lg-0 py-md-1 py-sm-0 mr-3" type="button" id="dropdownMenuButton" >
@@ -39,19 +39,6 @@
               </div>
           </nav>
       </header>
-        <main class="main mt-5">
-        <div class="pt-3">
-          <h1 class="logo ml-4">TourPin</h1>
-        </div>
-        <h5 class="total mt-5 pl-2 ml-4">Total number of travelers</h5>
-        <h5 class="mini_total ml-5 pl-2">Korea</h5>
-        <h5 class="total mt-3 pl-2 ml-4">The most area</h5>
-        <h5 class="mini_total ml-5 pl-2">553</h5>
-    </main>
-
-    <span class="icon fixed-bottom">
-        <a class="fa fa-search-plus fa-3x" href="#"></a>
-    </span>
   <!-- 로그인을 했을 경우 -->
   {% else %}
     <header class="header fixed-top">
@@ -82,11 +69,10 @@
               </div>
           </nav>
       </header>
-    {% block content %}
-    {% endblock %}
   {% endif %}
 
-    
+    {% block content %}
+    {% endblock %}
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
