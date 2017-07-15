@@ -15,8 +15,11 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-reboot.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-reboot.min.css' %}">
-   <link rel="stylesheet" type="text/css" href="{% static 'css/after_login_main.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/before_login_main.css' %}">
+  {% if not user.is_authenticated %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/before_login_main.css' %}"> 
+  {% else %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/after_login_main.css' %}">
+  {% endif %}
 
   {% block style %} 
   {% endblock %}
@@ -39,14 +42,16 @@
               </div>
           </nav>
       </header>
+  {% block a_content %}
+  {% endblock %}  
   <!-- 로그인을 했을 경우 -->
   {% else %}
     <header class="header fixed-top">
           <nav class="navbar navbar-toggleable-md navbar-light bg-sambemi">
-              <a class="navbar-brand navbar-white" href="#">PILOT</a>
+              <a class="navbar-brand navbar-white" href="/">PILOT</a>
               <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                      <a class="nav-link navbar-white px-0 py-1 mr-3" href="#">오제웅 여행자님<span class="sr-only">(여행자님 어서오세요! 현재 계급은 파일럿 입니다!)</span></a>
+                      <a class="nav-link navbar-white px-0 py-1 mr-3" href="#">{{user.username}} 여행자님<span class="sr-only">(여행자님 어서오세요! 현재 계급은 파일럿 입니다!)</span></a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link navbar-white px-0 py-1 mr-3" href="#">여행중</a>
@@ -59,7 +64,7 @@
                   </button>
                   <div class="dropdown-menu nav-m mr-auto" aria-labelledby="dropdownMenuButton">
                       <ul class="py-0">
-                          <li><a class="dropdown-item" href="after_login_main.html">main</a></li>
+                          <li><a class="dropdown-item" href="{% url 'index' %}">main</a></li>
                           <li><a class="dropdown-item" href="newspeed1.html">newspeed</a></li>
                           <li><a class="dropdown-item" href="group_page.html">tourship</a></li>
                           <li><a class="dropdown-item" href="preference0_reconfirm.html">set-up</a></li>
@@ -69,10 +74,11 @@
               </div>
           </nav>
       </header>
-  {% endif %}
-
     {% block content %}
     {% endblock %}
+  {% endif %}
+
+  
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
