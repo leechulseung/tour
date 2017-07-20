@@ -15,15 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url, include 
 from django.contrib import admin
-from accounts.views import index
+from accounts.views import login
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^$', index, name='index'),
-    url(r'^accounts/$', include('accounts.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^newspped/', include('news.urls', namespace="news")),
+    url(r'^$', login, name='login'),
+    url(r'^accounts/', include('accounts.urls')),
+    url(r'^newspeed/', include('news.urls', namespace="news")),
     url(r'^group/', include('group.urls', namespace='group')),
 ]
 
